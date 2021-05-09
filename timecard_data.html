@@ -1,0 +1,38 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="container m-auto p-3 bg-light">
+    <!-- Page that displays shifts for selected employee -->
+    <!-- {%if shifts|length !=0 %}
+        <h2>Timecards of : {{employee_full_name}}</h2>
+    {%else%}
+        <h2> There is no timecard for : {{employee_full_name}}</h2>
+    {%endif%} -->
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">Shif ID</th>
+            <th scope="col">Date</th>
+            <th scope="col">Start Time</th>
+            <th scope="col">End Time</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for shift in shifts %}
+            <tr>
+
+                <td>{{shift.ShiftID}}</td>
+                <td>{{shift.DateofShift}}</td>
+                <td>{{shift.StartTime}}</td>
+                <td>{{shift.EndTime}}</td>
+            
+            </tr>
+            
+        {% endfor %}
+        </tbody>
+    </table>
+
+</div>
+
+
+
+{% endblock content %}

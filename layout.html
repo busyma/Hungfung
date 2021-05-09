@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+
+
+  <title>HungFung Noodle Database</title>
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet"
+    href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+    crossorigin="anonymous">
+
+  <link rel="stylesheet" type="text/css"
+    href="{{ url_for('static', filename='main.css') }}">
+
+  {% if title %}
+  <title>Project Template - {{ title }}</title>
+  {% else %}
+  <title>Project Template</title>
+  {% endif %}
+</head>
+<body>
+    <header class="site-header" >
+        <nav class="navbar navbar-expand-md navbar-dark bg-steel fixed-top" style="background-color: #7c7361;">
+          <div class="container">
+            <img src="..\static/logo.png" style="width: 50px; height:50px;">
+            <a class="navbar-brand mr-4" href="/">Hung Fung Noodle Ltd.</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse"
+              data-target="#navbarToggle" aria-controls="navbarToggle"
+              aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarToggle">
+              <div class="navbar-nav mr-auto">
+                <a class="nav-item nav-link" href="{{ url_for('report') }}">Reports</a>
+                <a class="nav-item nav-link" href="{{ url_for('employee') }}">Employees</a>
+                <a class="nav-item nav-link" href="{{ url_for('shift') }}">Shifts</a>
+                <a class="nav-item nav-link" href="{{ url_for('holiday') }}">Holiday</a>
+              </div>
+
+              <!-- Navbar Right Side -->
+              <div class="navbar-nav">
+                <a class="nav-item nav-link" href="{{ url_for('emergency') }}">Emergency Contacts</a>
+              </div>
+            </div>
+          </div>
+        </nav>
+    </header>
+    <main role="main" class="container">
+      <div class="col-md-8">
+        {% with messages = get_flashed_messages(with_categories=true) %}
+          {% if messages %}
+            {% for category, message in messages %}
+              <div class="alert alert-{{ category }}">
+                {{ message }}
+              </div>
+            {% endfor %}
+          {% endif %}
+        {% endwith %}
+      </div>
+      
+        
+      <div>
+          {% block content %}{% endblock %}
+      </div>
+      </main>
+    
+
+    
+</body>
+</html>

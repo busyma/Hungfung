@@ -1,0 +1,40 @@
+{% extends "layout.html" %}
+{% block content %}
+
+
+<p>Check the box beside the emergency contact(s) you would like to delete</p>
+<form method="POST" action="">
+    {{ form.hidden_tag() }}
+    <fieldset class="form-group">
+    </fieldset>
+    <table class="table">
+        <thead>
+        <tr>
+                <th scope="col">Contact Name</th>
+                <th scope="col">Contact Number</th>
+                <th scope="col">Relation to Employee</th>
+                <th scope="col">Employee Name</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for contact in emergency_contacts %}
+                <tr>
+                        <td>{{contact.ContactName}}</td>
+                        <td>{{contact.PhoneNumber}}</td>
+                        <td>{{contact.Relation}}</td>
+                        <td>{{contact.Fname}} {{contact.Lname}}</td>
+                                                              <!-- 'value' is used to detrmine which boxes were checked -->
+                        <td><input type="checkbox" name="chk" value="{{contact.ContactName}}+{{contact.Fname}}+{{contact.Lname}}"/> </td>
+                        
+                </tr>
+                
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <div class="form-group">
+        {{ form.submit(class="btn btn-outline-info") }}
+    </div>
+</form>
+
+{% endblock content %}

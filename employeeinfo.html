@@ -1,0 +1,76 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<!-- Page that displays general employee info -->
+<h2>Operations Employees: {{operations_len}}</h2> 
+<table class="table">
+    <thead>
+    <tr>
+        <th scope="col">ID</th>
+        <th scope="col">SIN</th>
+        <th scope="col">Date of Birth</th>
+        <th scope="col">Date of Hire</th>
+        <th scope="col">First Name</th>
+        <th scope="col">Middle Name</th>
+        <th scope="col">Last Name</th>
+        <th scope="col">Address</th>
+        <th scope="col">Phone Number</th>
+        <th scope="col">Wage</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for operation in operations %}
+        <tr>
+
+            <td>{{operation.EmployeeID}}</td>
+            <td>{{operation.SIN}}</td>
+            <td>{{operation.DateofBirth}}</td>
+            <td>{{operation.DateofHire}}</td>
+            <td>{{operation.Fname}}</td>
+            <td>{{operation.Mname}}</td>
+            <td>{{operation.Lname}}</td>
+            <td>{{operation.Address}}</td>
+            <td>{{operation.PhoneNumber}}</td>
+            <td>{{operation.WagePerHour}}</td>
+        </tr>
+        
+    {% endfor %}
+    </tbody>
+</table>
+
+<h2>Office Employees: {{office_len}}</h2>
+<table class="table">
+    <thead>
+    <tr>
+        <th scope="col">ID</th>
+        <th scope="col">SIN</th>
+        <th scope="col">Date of Birth</th>
+        <th scope="col">Date of Hire</th>
+        <th scope="col">First Name</th>
+        <th scope="col">Middle Name</th>
+        <th scope="col">Last Name</th>
+        <th scope="col">Address</th>
+        <th scope="col">Phone Number</th>
+        <th scope="col">Salary</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for office in offices %}
+        <tr>
+            <!-- <th scope="row"></th> -->
+            <td>{{office.EmployeeID}}</td>
+            <td>{{office.SIN}}</td>
+            <td>{{office.DateofBirth}}</td>
+            <td>{{office.DateofHire}}</td>
+            <td>{{office.Fname}}</td>
+            <td>{{office.Mname}}</td>
+            <td>{{office.Lname}}</td>
+            <td>{{office.Address}}</td>
+            <td>{{office.PhoneNumber}}</td>
+            <td>{{office.Salary}}</td>
+        </tr>
+        
+    {% endfor %}
+    </tbody>
+</table>
+{% endblock content %}

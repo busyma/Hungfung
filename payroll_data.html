@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<h2>Total Amount Earned: {{gross_pay}}</h2>
+<!-- Page for filtered pay stubs -->
+<table class="table">
+        <thead>
+        <tr>
+                <th scope="col">Employee Name</th>
+                <th scope="col">Cheque Number</th>
+                <th scope="col">Date</th>
+                <th scope="col">Gross Pay</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for stub in stubs %}
+                <tr>    
+                        <td>{{stub.Fname}} {{stub.Lname}}</td>
+                        <td>{{stub.ChequeNumber}}</td>
+                        <td>{{stub.PayrollDate}}</td>
+                        <td>{{stub.GrossPay}}</td>
+                </tr>
+                
+        {% endfor %}
+        </tbody>
+</table>
+
+
+{% endblock content %}

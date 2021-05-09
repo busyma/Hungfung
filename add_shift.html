@@ -1,0 +1,90 @@
+{% extends "layout.html" %}
+{% block content %}
+
+    <form method="POST" action="" style="background: #fff8ea;">
+        {{ form.hidden_tag() }}
+        <fieldset class="form-group">
+        </fieldset>
+
+        <div class="form-row" style="background: #fff8ea;">
+
+                <!-- Employee Dropdown  -->
+                <div class="form-group col-md-3">
+                        {{ form.employee_filter.label(class="form-control-label") }}
+                  
+                        {% if form.employee_filter.errors %}
+                        {{ form.employee_filter(class="form-control form-control-sm is-invalid") }}
+                        <div class="invalid-feedback">
+                          {% for error in form.employee_filter.errors %}
+                          <span>{{ error }}</span>
+                          {% endfor %}
+                        </div>
+                        {% else %}
+                        {{ form.employee_filter(class="form-control form-control-sm") }}
+                        {% endif %}
+                </div>
+
+                <!-- Date of shift -->
+
+                <div class="form-group col-md-3">
+                    {{ form.date_of_shift.label(class="form-control-label") }}
+              
+                    {% if form.date_of_shift.errors %}
+                    {{ form.date_of_shift(class="form-control form-control-sm is-invalid") }} 
+                    <div class="invalid-feedback">
+                      {% for error in form.date_of_shift.errors %}
+                      <span>{{ error }}</span>
+                      {% endfor %}
+                    </div>
+                    {% else %}
+                    {{ form.date_of_shift(class="form-control form-control-sm") }}
+                    {% endif %}
+                </div>
+
+            <!-- Start Time -->
+
+            <div class="form-group col-md-3">
+                {{ form.shift_start_time.label(class="form-control-label") }}
+          
+                {% if form.shift_start_time.errors %}
+                {{ form.shift_start_time(class="form-control form-control-sm is-invalid") }} 
+                <div class="invalid-feedback">
+                  {% for error in form.shift_start_time.errors %}
+                  <span>{{ error }}</span>
+                  {% endfor %}
+                </div>
+                {% else %}
+                {{ form.shift_start_time(class="form-control form-control-sm") }}
+                {% endif %}
+        </div>
+
+        <!-- End Time -->
+
+        <div class="form-group col-md-3" style="background-color: #fff8ea;" >
+            {{ form.sift_end_time.label(class="form-control-label") }}
+      
+            {% if form.sift_end_time.errors %}
+            {{ form.sift_end_time(class="form-control form-control-sm is-invalid") }} 
+            <div class="invalid-feedback">
+              {% for error in form.sift_end_time.errors %}
+              <span>{{ error }}</span>
+              {% endfor %}
+            </div>
+            {% else %}
+            {{ form.sift_end_time(class="form-control form-control-sm") }}
+            {% endif %}
+    </div>
+        
+                
+                
+                
+        </div>
+        <div class="form-group">
+                {{ form.submit(class="btn btn-outline-info") }}
+        </div>
+    </form>
+
+
+
+
+{% endblock content %}

@@ -1,0 +1,40 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<!-- Page that displays general employee info -->
+<p>Please see list of ex-employees below.</p>
+<table class="table">
+    <thead>
+    <tr>
+        <th scope="col">ID</th>
+        <th scope="col">SIN</th>
+        <th scope="col">Date of Birth</th>
+        <th scope="col">Date of Hire</th>
+        <th scope="col">First Name</th>
+        <th scope="col">Middle Name</th>
+        <th scope="col">Last Name</th>
+        <th scope="col">Address</th>
+        <th scope="col">End Date</th>
+        
+    </tr>
+    </thead>
+    <tbody>
+    {% for exEmployee in exEmployees %}
+        <tr>
+
+            <td>{{exEmployee.EmployeeID}}</td>
+            <td>{{exEmployee.SIN}}</td>
+            <td>{{exEmployee.DateofBirth}}</td>
+            <td>{{exEmployee.DateofHire}}</td>
+            <td>{{exEmployee.Fname}}</td>
+            <td>{{exEmployee.Mname}}</td>
+            <td>{{exEmployee.Lname}}</td>
+            <td>{{exEmployee.Address}}</td>
+            <td>{{exEmployee.TerminationDate}}</td>
+           
+        </tr>
+        
+    {% endfor %}
+    </tbody>
+</table>
+{% endblock content %}

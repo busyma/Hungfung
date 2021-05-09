@@ -1,0 +1,40 @@
+{% extends "layout.html" %}
+{% block content %}
+  
+<div class="row">
+  <div class="col-sm-4">
+    <div class="card">
+      <img src="..\static/employee2.jfif" style="width: 100%;">
+      <div class="card-body">
+        <h5 class="card-title">Add New Employee</h5>
+          <p class="card-text">Fill out a form to add a new employee</p>
+        <a href="{{ url_for('add_new_employee') }}" class="btn btn-primary">Add</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-sm-4">
+    <div class="card">
+      <img src="..\static/employee3.jfif" style="width: 100%;">
+      <div class="card-body">
+        <h5 class="card-title">Update Employee Info</h5>
+          <p class="card-text">Change an employee's information</p>
+        <a href="{{ url_for('update_employee_info') }}" class="btn btn-primary">Update</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-sm-4">
+    <div class="card">
+      <img src="..\static/employee4.jfif" style="width: 100%;">
+      <div class="card-body">
+        <h5 class="card-title">Delete Employee</h5>
+          <p class="card-text">Remove an employee from the database.</p>
+        <a href="{{ url_for('removeEmployee') }}" class="btn btn-primary">Delete</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+{% endblock content %}

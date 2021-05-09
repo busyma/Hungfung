@@ -1,0 +1,39 @@
+{% extends "layout.html" %}
+{% block content %}
+
+
+<h2>Holiday Bonus</h2>
+<p>These employees worked every holiday and are eligible for the end of year bonus!</p>
+
+<!-- Page that displays general employee info -->
+
+<h2>Eligible Employees</h2> 
+<table class="table">
+    <thead>
+    <tr>
+        <th scope="col">ID</th>
+        <th scope="col">First Name</th>
+        <th scope="col">Middle Name</th>
+        <th scope="col">Last Name</th>
+        
+    </tr>
+    </thead>
+    <tbody>
+
+    {% for e in employees %}
+        <tr>
+
+            <td>{{e.EmployeeID}}</td>
+            <td>{{e.Fname}}</td>
+            <td>{{e.Mname}}</td>
+            <td>{{e.Lname}}</td>
+        </tr>
+        
+    {% endfor %}
+    </tbody>
+</table>
+
+{% endblock content %}
+
+
+

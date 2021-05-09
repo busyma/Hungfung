@@ -1,0 +1,34 @@
+{% extends "layout.html" %}
+{% block content %}
+    <form method="POST" action="" style="background-color: #fff8ea;">
+        {{ form.hidden_tag() }}
+        <fieldset class="form-group">
+        </fieldset>
+
+        <div class="form-row" style="background-color: #fff8ea;">
+
+                <!-- Employee Dropdown  -->
+                <div class="form-group col-md-3" style="background-color: #fff8ea;">
+                        {{ form.employee_filter.label(class="form-control-label") }}
+                  
+                        {% if form.employee_filter.errors %}
+                        {{ form.employee_filter(class="form-control form-control-sm is-invalid") }}
+                        <div class="invalid-feedback" style="background-color: #fff8ea;">
+                          {% for error in form.employee_filter.errors %}
+                          <span>{{ error }}</span>
+                          {% endfor %}
+                        </div>
+                        {% else %}
+                        {{ form.employee_filter(class="form-control form-control-sm") }}
+                        {% endif %}
+                </div>
+        </div>
+        <div class="form-group" style="background-color: #fff8ea;">
+                {{ form.submit(class="btn btn-outline-info" ) }}
+        </div>
+    </form>
+
+
+
+
+{% endblock content %}

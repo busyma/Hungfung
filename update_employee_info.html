@@ -1,0 +1,37 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<form method="POST" action="">
+  {{ form.hidden_tag() }}
+  <fieldset class="form-group">
+  </fieldset>
+
+
+    <div class="form-row">
+
+      <!-- populate employee name drop down -->
+      <div class="form-group col-md-4">
+        {{ form.employee_update.label(class="form-control-label") }}
+
+        {% if form.employee_update.errors %}
+        {{ form.employee_update(class="form-control form-control-lg is-invalid") }}
+        <div class="invalid-feedback">
+                {% for error in form.employee_update.errors %}
+                <span>{{ error }}</span>
+                {% endfor %}
+        </div>
+        {% else %}
+        {{ form.employee_update(class="form-control form-control-lg") }}
+        {% endif %}
+      </div>
+    </div>
+        
+    <!-- Submit button -->
+    <div class="form-group">
+      {{ form.submit(class="btn btn-outline-info") }}
+    </div>
+
+
+  </form>
+
+{% endblock content %}

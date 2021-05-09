@@ -1,0 +1,86 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<form method="POST" action="">
+        {{ form.hidden_tag() }}
+        <fieldset class="form-group">
+        </fieldset>
+        <div class="form-row">
+        
+        
+                <!-- Employee Name Dropdown  -->
+                <div class="form-group col-md-3">
+                        {{ form.emergency_contact_employee.label(class="form-control-label") }}
+
+                        {% if form.emergency_contact_employee.errors %}
+                        {{ form.emergency_contact_employee(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                                {% for error in form.emergency_contact_employee.errors %}
+                                <span>{{ error }}</span>
+                                {% endfor %}
+                        </div>
+                        {% else %}
+                        {{ form.emergency_contact_employee(class="form-control form-control-lg") }}
+                        {% endif %}
+                </div>
+
+                <!-- Contact Name -->
+                <div class="form-group col-md-3">
+                        {{ form.emergency_contact_name.label(class="form-control-label") }}
+                  
+                        {% if form.emergency_contact_name.errors %}
+                        {{ form.emergency_contact_name(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                          {% for error in form.emergency_contact_name.errors %}
+                          <span>{{ error }}</span>
+                          {% endfor %}
+                        </div>
+                        {% else %}
+                        {{ form.emergency_contact_name(class="form-control form-control-lg") }}
+                        {% endif %}
+                </div>
+
+                <!-- Contact Phone Number-->
+                <div class="form-group col-md-3">
+                        {{ form.emergency_contact_phone.label(class="form-control-label") }}
+                  
+                        {% if form.emergency_contact_phone.errors %}
+                        {{ form.emergency_contact_phone(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                          {% for error in form.emergency_contact_phone.errors %}
+                          <span>{{ error }}</span>
+                          {% endfor %}
+                        </div>
+                        {% else %}
+                        {{ form.emergency_contact_phone(class="form-control form-control-lg") }}
+                        {% endif %}
+                </div>
+
+                <!-- Contact Relation-->
+                <div class="form-group col-md-3">
+                        {{ form.emergency_contact_relation.label(class="form-control-label") }}
+                  
+                        {% if form.emergency_contact_relation.errors %}
+                        {{ form.emergency_contact_relation(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                          {% for error in form.emergency_contact_relation.errors %}
+                          <span>{{ error }}</span>
+                          {% endfor %}
+                        </div>
+                        {% else %}
+                        {{ form.emergency_contact_relation(class="form-control form-control-lg") }}
+                        {% endif %}
+                </div>
+
+
+        </div>
+
+        
+
+        <div class="form-group">
+                {{ form.submit(class="btn btn-outline-info") }}
+        </div>
+</form>
+
+
+{% endblock content %}
